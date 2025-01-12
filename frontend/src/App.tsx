@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import "./App.css";
+
+// Pages Directory
+import { Link } from "react-router-dom";
+import { routes } from "./libs/constructors";
+import Providers from "./libs/Providers";
+import * as Pages from "./pages";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Providers>
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to={routes.root.path}>Home</Link>
+              </li>
+            </ul>
+          </nav>
+          <Routes>
+            <Route path={routes.root.path} element={<Pages.Home />} />
+            <Route
+              path={`${routes.details.path}/:id`}
+              element={<Pages.Details />}
+            />
+            <Route path="/*" element={<Pages.NotFound />} />
+          </Routes>
+        </div>
+      </Router>
+    </Providers>
   );
 }
 
