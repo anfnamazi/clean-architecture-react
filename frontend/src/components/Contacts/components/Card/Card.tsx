@@ -1,23 +1,23 @@
 import { FunctionComponent, HTMLAttributes } from "react";
-import { Avatar, Card, Info } from "./Contact.styles";
+import { Avatar, Container, Info } from "./Card.styles";
 
-interface ContactProps extends HTMLAttributes<HTMLDivElement> {
-  info: IContact;
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  info: ICard;
 }
 
-const Contact: FunctionComponent<ContactProps> = ({
+const Card: FunctionComponent<CardProps> = ({
   info: { name, avatar, phone },
   ...divProps
 }) => {
   return (
-    <Card {...divProps}>
+    <Container {...divProps}>
       <Avatar src={avatar} alt={name} />
       <Info>
         <div>name: {name}</div>
         <div>phone: {phone}</div>
       </Info>
-    </Card>
+    </Container>
   );
 };
 
-export default Contact;
+export default Card;

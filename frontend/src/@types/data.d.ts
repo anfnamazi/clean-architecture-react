@@ -31,7 +31,7 @@ interface IContactsResponse {
   items: IContactData[];
 }
 
-interface IContact {
+interface ICard {
   id: number;
   name: string;
   phone: string;

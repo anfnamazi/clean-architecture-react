@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const Card = styled.div({
+export const Container = styled.div({
   border: "1px solid black",
   padding: 12,
   borderRadius: 4,

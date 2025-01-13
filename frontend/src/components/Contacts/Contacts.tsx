@@ -3,7 +3,7 @@ import { FunctionComponent, memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { ContactQueryKeyEnum } from "../../@types/enum";
 import { contactUrl, routes } from "../../libs/constructors";
-import { Contact } from "./components";
+import { Card } from "./components";
 import { Container } from "./Contacts.styles";
 
 interface ContactsProps {}
@@ -24,7 +24,7 @@ const Contacts: FunctionComponent<ContactsProps> = () => {
     return error.message;
   }
 
-  const contacts: IContact[] = data.items.map((c) => {
+  const contacts: ICard[] = data.items.map((c) => {
     return {
       id: c.id,
       avatar: c.avatar,
@@ -33,7 +33,7 @@ const Contacts: FunctionComponent<ContactsProps> = () => {
     };
   });
 
-  const handleClick = (c: IContact) => {
+  const handleClick = (c: ICard) => {
     return () => {
       navigate(routes.details.url(c.id));
     };
@@ -42,7 +42,7 @@ const Contacts: FunctionComponent<ContactsProps> = () => {
   return (
     <Container>
       {contacts.map((c) => (
-        <Contact key={c.id} info={c} onClick={handleClick(c)} />
+        <Card key={c.id} info={c} onClick={handleClick(c)} />
       ))}
     </Container>
   );
