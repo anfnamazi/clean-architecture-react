@@ -1,6 +1,6 @@
 import { FunctionComponent, lazy, Suspense } from "react";
 
-const Contacts = lazy(() => import("domains/Contacts"));
+const Contacts = lazy(() => import("components/Contacts"));
 
 interface HomeProps {}
 

@@ -15,6 +15,10 @@ export function withApi<TProps, TData>(
       return error.message;
     }
 
+    if (!data) {
+      return "Loading...";
+    }
+
     return <Component {...props} data={data} />;
   }
   return memo(EnhancedComponent);

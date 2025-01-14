@@ -11,7 +11,7 @@ const useCardContacts: UseCaseType<ICard[]> = () => {
     queryFn: contactAdapter.getAllContact,
   });
 
-  const cards: ICard[] = data?.items.map((c) => {
+  const cards: ICard[] = data?.items?.map((c) => {
     return {
       id: c.id,
       avatar: c.avatar,

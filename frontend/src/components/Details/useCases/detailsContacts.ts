@@ -13,7 +13,7 @@ const useDetailsContacts: UseCaseType<Details<IContactData>> = () => {
     queryFn: () => contactAdapter.getSingleContact(id),
   });
 
-  const cards = Object.entries(data) as Details<IContactData>;
+  const cards = Object.entries(data ?? {}) as Details<IContactData>;
 
   return { isPending, error, data: cards };
 };
