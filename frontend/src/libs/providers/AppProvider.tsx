@@ -3,14 +3,14 @@ import { FunctionComponent, ReactNode } from "react";
 
 const queryClient = new QueryClient();
 
-interface ProvidersProps {
+interface AppProviderProps {
   children: ReactNode;
 }
 
-const Providers: FunctionComponent<ProvidersProps> = ({ children }) => {
+const AppProvider: FunctionComponent<AppProviderProps> = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 };
 
-export default Providers;
+export default AppProvider;

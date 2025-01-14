@@ -1,15 +1,14 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import "./App.css";
 
 // Pages Directory
+import { routes } from "libs/config/constructors";
+import AppProvider from "libs/providers/AppProvider";
+import * as Pages from "pages";
 import { Link } from "react-router-dom";
-import { routes } from "./libs/constructors";
-import Providers from "./libs/Providers";
-import * as Pages from "./pages";
 
 function App() {
   return (
-    <Providers>
+    <AppProvider>
       <Router>
         <div>
           <nav>
@@ -29,7 +28,7 @@ function App() {
           </Routes>
         </div>
       </Router>
-    </Providers>
+    </AppProvider>
   );
 }
 

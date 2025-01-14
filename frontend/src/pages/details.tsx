@@ -1,6 +1,6 @@
 import { FunctionComponent, lazy, Suspense } from "react";
 
-const DetailsComp = lazy(() => import("../components/Details"));
+const DetailsComp = lazy(() => import("domains/Details"));
 
 interface DetailsProps {}
 

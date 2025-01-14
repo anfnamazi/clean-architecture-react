@@ -30,10 +30,3 @@ interface IContactsResponse {
   meta: IMetaData;
   items: IContactData[];
 }
-
-interface ICard {
-  id: number;
-  name: string;
-  phone: string;
-  avatar: string;
-}

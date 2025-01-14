@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
+import { contactUrl } from "libs/config/constructors";
+import { ContactQueryKeyEnum } from "libs/config/queryKeys";
 import { FunctionComponent } from "react";
 import { useParams } from "react-router-dom";
-import { ContactQueryKeyEnum } from "../../@types/enum";
-import { contactUrl } from "../../libs/constructors";
 
 interface DetailsProps {}
 

@@ -1,3 +1,4 @@
+import { ICard } from "domains/Contacts/types";
 import { FunctionComponent, HTMLAttributes } from "react";
 import { Avatar, Container, Info } from "./Card.styles";
 
