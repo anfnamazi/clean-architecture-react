@@ -1,12 +1,12 @@
 import { routes } from "libs/config/constructors";
-import { withApi } from "libs/HOC/withApi";
+import { withUseCase } from "libs/HOC/withUseCase";
 import { useNavigate } from "react-router-dom";
 import { ICard } from "../types";
 import { useCaseCardContacts } from "../useCases";
 import { Card } from "./Card";
 import { Container } from "./Contacts.styles";
 
-const Contacts = withApi(({ data }) => {
+const Contacts = withUseCase(({ data }) => {
   const navigate = useNavigate();
 
   const handleClick = (c: ICard) => {

@@ -1,7 +1,7 @@
-import { withApi } from "libs/HOC/withApi";
+import { withUseCase } from "libs/HOC/withUseCase";
 import { useCaseDetailsContacts } from "../useCases";
 
-const Details = withApi(({ data }) => {
+const Details = withUseCase(({ data }) => {
   return (
     <div>
       {data.map(([k, v]) => (

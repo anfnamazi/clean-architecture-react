@@ -1,6 +1,6 @@
 import { FC, memo } from "react";
 
-export function withApi<TProps, TData>(
+export function withUseCase<TProps, TData>(
   Component: FC<TProps & { data: TData }>,
   useCase: UseCaseType<TData>
 ) {
