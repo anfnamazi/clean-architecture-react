@@ -1,4 +1,5 @@
 import { ICard } from "components/Contacts/types";
+import { personImgPath } from "libs/config/constructors";
 import { FunctionComponent, HTMLAttributes } from "react";
 import { Avatar, Container, Info } from "./Card.styles";
 
@@ -7,15 +8,16 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const Card: FunctionComponent<CardProps> = ({
-  info: { name, avatar, phone },
+  info: { name, avatar, phone, address },
   ...divProps
 }) => {
   return (
     <Container {...divProps}>
-      <Avatar src={avatar} alt={name} />
+      <Avatar src={avatar ?? personImgPath} alt={name} />
       <Info>
         <div>name: {name}</div>
         <div>phone: {phone}</div>
+        <div>address: {address ?? "--"}</div>
       </Info>
     </Container>
   );

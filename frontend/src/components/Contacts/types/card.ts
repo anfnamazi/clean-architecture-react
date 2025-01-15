@@ -3,4 +3,5 @@ export interface ICard {
   name: string;
   phone: string;
   avatar: string;
+  address: string;
 }

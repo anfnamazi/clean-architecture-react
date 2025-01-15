@@ -2,7 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 // Pages Directory
 import { routes } from "libs/config/constructors";
-import AppProvider from "libs/providers/AppProvider";
+import AppProvider from "libs/providers/App.provider";
 import * as Pages from "pages";
 import { Link } from "react-router-dom";
 
