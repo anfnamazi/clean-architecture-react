@@ -4,7 +4,7 @@ import { ContactQueryKeyEnum } from "libs/config/queryKeys";
 import { useParams } from "react-router-dom";
 import { Details } from "../types";
 
-const useDetailsContacts: UseCaseType<Details<IContactData>> = () => {
+const useCaseDetailsContacts: UseCaseType<Details<IContactData>> = () => {
   const { id } = useParams();
   const contactAdapter = new ContactsApiAdapter();
 
@@ -18,4 +18,4 @@ const useDetailsContacts: UseCaseType<Details<IContactData>> = () => {
   return { isPending, error, data: cards };
 };
 
-export default useDetailsContacts;
+export default useCaseDetailsContacts;

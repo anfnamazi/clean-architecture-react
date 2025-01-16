@@ -4,7 +4,7 @@ import { ICard } from "components/shared";
 import { ContactQueryKeyEnum } from "libs/config/queryKeys";
 import { useSearchContext } from "libs/contexts/search";
 
-const useCardContacts: UseCaseType<ICard[]> = () => {
+const useCaseCardContacts: UseCaseType<ICard[]> = () => {
   const contactAdapter = new ContactsApiAdapter();
 
   const { state } = useSearchContext();
@@ -27,4 +27,4 @@ const useCardContacts: UseCaseType<ICard[]> = () => {
   return { isPending, error, data: cards };
 };
 
-export default useCardContacts;
+export default useCaseCardContacts;
