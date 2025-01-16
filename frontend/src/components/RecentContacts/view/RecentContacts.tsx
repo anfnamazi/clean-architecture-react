@@ -1,5 +1,6 @@
 import { Card, ICard } from "components/shared";
 import { routes } from "libs/config/constructors";
+import { isEmpty } from "lodash";
 import { FunctionComponent } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCachedContacts } from "../hooks";
@@ -19,6 +20,7 @@ const RecentContact: FunctionComponent<RecentContactProps> = () => {
 
   return (
     <Container>
+      {isEmpty(cachedContact) ? "no cache ..." : null}
       {cachedContact.map((c) => (
         <Card info={c} onClick={handleClick(c)} />
       ))}
