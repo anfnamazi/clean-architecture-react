@@ -1,9 +1,9 @@
 import { createContext } from "react";
 import { SearchActionEnum, SearchStateType } from "./types";
 
-export const SearchContext = createContext<ContextType<
+export const SearchContext = createContext<ContextReducerType<
   SearchStateType,
-  ActionType<SearchActionEnum, SearchStateType>
+  ReducerActionType<SearchActionEnum, SearchStateType>
 > | null>({
   state: { searchValue: "" },
   dispatch: () => {},

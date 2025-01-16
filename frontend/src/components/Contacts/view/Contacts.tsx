@@ -1,16 +1,18 @@
+import { Card, ICard } from "components/shared";
 import { routes } from "libs/config/constructors";
 import { withUseCase } from "libs/HOC/withUseCase";
 import { useNavigate } from "react-router-dom";
-import { ICard } from "../types";
+import { useCachedContacts } from "../hooks";
 import { useCaseCardContacts } from "../useCases";
-import { Card } from "./Card";
 import { Container } from "./Contacts.styles";
 
 const Contacts = withUseCase(({ data }) => {
   const navigate = useNavigate();
+  const { handleInsertion } = useCachedContacts();
 
   const handleClick = (c: ICard) => {
     return () => {
+      handleInsertion(c);
       navigate(routes.details.url(c.id));
     };
   };

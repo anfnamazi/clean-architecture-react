@@ -4,12 +4,22 @@ type UseCaseType<T> = () => {
   data: T;
 };
 
-interface ContextType<TState, TAction> {
+interface IRoute {
+  path: string;
+  url?: (id: number) => string;
+}
+
+interface ContextReducerType<TState, TAction> {
   state: TState;
   dispatch: (action: TAction) => void;
 }
 
-interface ActionType<EAction, TState> {
+interface ReducerActionType<EAction, TState> {
   type: EAction;
   payload: Partial<TState>;
+}
+
+interface ContextStateType<TState, TSetState> {
+  state: TState;
+  setState: TSetState;
 }

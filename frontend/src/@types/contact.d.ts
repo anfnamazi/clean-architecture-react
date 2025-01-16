@@ -1,8 +1,3 @@
-interface IRoute {
-  path: string;
-  url?: (id: number) => string;
-}
-
 interface IContactData {
   first_name: string;
   last_name: string;
@@ -29,4 +24,9 @@ interface IMetaData {
 interface IContactsResponse {
   meta: IMetaData;
   items: IContactData[];
+}
+
+interface IContactFilterQuery extends IUnifyFilterQuery {
+  first_name?: IFilterQuery;
+  phone?: IFilterQuery;
 }

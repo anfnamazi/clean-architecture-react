@@ -1,26 +1,17 @@
-export class FilterObj implements IFilterObj {
-  first_name: IFilterObjBody;
-  phone: IFilterObjBody;
+export class FilterQuery implements IFilterQuery {
+  contains: string;
 
-  create(searchedString: string) {
-    const filterObjBody: IFilterObjBody = { contains: searchedString };
-    if (+searchedString) {
-      this.phone = filterObjBody;
-    } else {
-      this.first_name = filterObjBody;
-    }
+  init(searchedString: string) {
+    this.contains = searchedString;
   }
 }
-
-export class FilterParams implements IFilterParams {
+export class FilterParams<T> implements IFilterParams {
   where: string;
   sort: string;
 
-  create(searchedString: string, sort: string) {
-    const filterObj = new FilterObj();
-    filterObj.create(searchedString);
-    const filterObjString = JSON.stringify(filterObj);
-    this.where = filterObjString;
+  init(apiFilterQuery: T, sort: string) {
+    const apiFilterQueryString = JSON.stringify(apiFilterQuery);
+    this.where = apiFilterQueryString;
     this.sort = sort;
   }
 

@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import ContactsApiAdapter from "adapters/contacts";
+import { ICard } from "components/shared";
 import { ContactQueryKeyEnum } from "libs/config/queryKeys";
 import { useSearchContext } from "libs/contexts/search";
-import { ICard } from "../types";
 
 const useCardContacts: UseCaseType<ICard[]> = () => {
   const contactAdapter = new ContactsApiAdapter();

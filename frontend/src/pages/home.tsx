@@ -1,4 +1,6 @@
+import RecentContact from "components/RecentContacts";
 import SearchInput from "components/SearchInput";
+import { CachedContactsProvider } from "libs/contexts/cachedContacts";
 import { SearchProvider } from "libs/contexts/search";
 import { FunctionComponent, lazy, Suspense } from "react";
 
@@ -11,9 +13,15 @@ const Home: FunctionComponent<HomeProps> = () => {
     <div>
       <SearchProvider>
         <SearchInput />
-        <Suspense fallback="Loading...">
-          <Contacts />
-        </Suspense>
+        <div>Recent visited</div>
+        <CachedContactsProvider>
+          <RecentContact />
+          <hr />
+          <div>Contact List</div>
+          <Suspense fallback="Loading...">
+            <Contacts />
+          </Suspense>
+        </CachedContactsProvider>
       </SearchProvider>
     </div>
   );

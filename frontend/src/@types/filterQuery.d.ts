@@ -1,9 +1,4 @@
-interface IFilterObj {
-  first_name: IFilterObjBody;
-  phone: IFilterObjBody;
-}
-
-interface IFilterObjBody {
+interface IFilterQuery {
   contains: string;
 }
 

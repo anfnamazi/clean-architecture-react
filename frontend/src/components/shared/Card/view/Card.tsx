@@ -1,6 +1,6 @@
-import { ICard } from "components/Contacts/types";
 import { personImgPath } from "libs/config/constructors";
 import { FunctionComponent, HTMLAttributes } from "react";
+import { ICard } from "../types";
 import { Avatar, Container, Info } from "./Card.styles";
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {

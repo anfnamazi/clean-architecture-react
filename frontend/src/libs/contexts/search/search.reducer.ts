@@ -2,7 +2,7 @@ import { SearchActionEnum, SearchStateType } from "./types";
 
 export const searchReducer = (
   state: SearchStateType,
-  action: ActionType<SearchActionEnum, SearchStateType>
+  action: ReducerActionType<SearchActionEnum, SearchStateType>
 ): SearchStateType => {
   switch (action.type) {
     case SearchActionEnum.SET_SEARCH_VALUE: {

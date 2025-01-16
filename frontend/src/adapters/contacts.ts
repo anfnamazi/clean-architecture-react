@@ -1,6 +1,22 @@
-import { FilterParams } from "libs/config/classes";
+import { FilterParams, FilterQuery } from "libs/config/classes";
 import { contactUrl } from "libs/config/constructors";
 import ContactsRepository from "repositories/contacts";
+
+class ContactFilterQuery implements IContactFilterQuery {
+  first_name: IFilterQuery;
+  phone: IFilterQuery;
+
+  init(searchedString: string) {
+    const filterQuery = new FilterQuery();
+    filterQuery.init(searchedString);
+
+    if (+searchedString) {
+      this.phone = filterQuery;
+    } else {
+      this.first_name = filterQuery;
+    }
+  }
+}
 
 class ContactsApiAdapter implements ContactsRepository {
   async getAllContact(): Promise<IContactsResponse> {
@@ -18,8 +34,11 @@ class ContactsApiAdapter implements ContactsRepository {
       return this.getAllContact();
     }
 
-    const filterParams = new FilterParams();
-    filterParams.create(searchedString, "createdAt DESC");
+    const contactFilterQuery = new ContactFilterQuery();
+    contactFilterQuery.init(searchedString);
+
+    const filterParams = new FilterParams<IContactFilterQuery>();
+    filterParams.init(contactFilterQuery, "createdAt DESC");
 
     const stringParams = new URLSearchParams(
       filterParams.toString()
