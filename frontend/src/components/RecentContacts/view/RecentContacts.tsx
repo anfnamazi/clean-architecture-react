@@ -1,9 +1,8 @@
-import { Card, ICard } from "components/shared";
+import { Card, ICard, useCachedContacts } from "components/shared";
 import { routes } from "libs/config/constructors";
 import { isEmpty } from "lodash";
 import { FunctionComponent } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCachedContacts } from "../hooks";
 import { Container } from "./RecentContacts.styles";
 
 interface RecentContactProps {}

@@ -4,6 +4,8 @@ import { useCachedContactsContext } from "libs/contexts/cachedContacts";
 const useCachedContacts = () => {
   const { state, setState } = useCachedContactsContext();
 
+  const cachedContact: ICard[] = JSON.parse(state);
+
   const handleInsertion = (newCard: ICard) => {
     const cached: ICard[] = JSON.parse(state);
     if (cached.length === 4) {
@@ -14,7 +16,7 @@ const useCachedContacts = () => {
     setState(stringCached);
   };
 
-  return { handleInsertion };
+  return { cachedContact, handleInsertion };
 };
 
 export default useCachedContacts;

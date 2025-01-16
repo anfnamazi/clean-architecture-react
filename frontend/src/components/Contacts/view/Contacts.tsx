@@ -1,8 +1,7 @@
-import { Card, ICard } from "components/shared";
+import { Card, ICard, useCachedContacts } from "components/shared";
 import { routes } from "libs/config/constructors";
 import { withUseCase } from "libs/HOC/withUseCase";
 import { useNavigate } from "react-router-dom";
-import { useCachedContacts } from "../hooks";
 import { useCaseCardContacts } from "../useCases";
 import { Container } from "./Contacts.styles";
 
