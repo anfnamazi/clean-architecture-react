@@ -18,3 +18,4 @@ export const routes: IRoutes = {
 };
 
 export const personImgPath = "/images/person.png";
+export const cacheLength = 4;
